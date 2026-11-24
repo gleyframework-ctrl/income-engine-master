@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  api:
+    build: ./backend
+    container_name: income-engine-api
+    restart: always
+    network_mode: "host"
+    env_file: .env
+    volumes:
+      - ./uploads:/tmp
