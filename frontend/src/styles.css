@@ -1,0 +1,167 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-bg-primary: #0f1117;
+  --color-bg-surface: #171a21;
+  --color-bg-elevated: #1e222c;
+  --color-border-subtle: #2a2e38;
+  --color-gold: #e8c547;
+  --color-gold-hover: #f3d66b;
+  --color-cyan: #4fd1e8;
+  --color-purple: #8b7fe8;
+  --color-text-primary: #f5f5f5;
+  --color-text-secondary: #9ca3af;
+  --color-success: #34d399;
+  --color-error: #f87171;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: #0f1117;
+  --foreground: #f5f5f5;
+  --card: #171a21;
+  --card-foreground: #f5f5f5;
+  --popover: #1e222c;
+  --popover-foreground: #f5f5f5;
+  --primary: #e8c547;
+  --primary-foreground: #0f1117;
+  --secondary: #1e222c;
+  --secondary-foreground: #f5f5f5;
+  --muted: #1e222c;
+  --muted-foreground: #9ca3af;
+  --accent: #1e222c;
+  --accent-foreground: #f5f5f5;
+  --destructive: #f87171;
+  --destructive-foreground: #0f1117;
+  --border: #2a2e38;
+  --input: #2a2e38;
+  --ring: #4fd1e8;
+}
+
+@utility btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  background-color: var(--color-gold);
+  color: #0f1117;
+  transition: all 200ms ease;
+  &:hover:not(:disabled) {
+    background-color: var(--color-gold-hover);
+    box-shadow: 0 0 15px rgba(232, 197, 71, 0.35);
+  }
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+@utility btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  border: 1px solid var(--color-border-subtle);
+  background-color: transparent;
+  color: var(--color-text-primary);
+  transition: all 200ms ease;
+  &:hover:not(:disabled) {
+    background-color: var(--color-bg-elevated);
+  }
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+@utility dot-cyan {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background-color: var(--color-cyan);
+  animation: pulse-cyan 2s infinite;
+}
+
+@utility dot-gold {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background-color: var(--color-gold);
+}
+
+@utility dot-gray {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background-color: var(--color-border-subtle);
+}
+
+@keyframes pulse-cyan {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(79, 209, 232, 0.7);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 0 6px rgba(79, 209, 232, 0);
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html,
+  body {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+  }
+}
